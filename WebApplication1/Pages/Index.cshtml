@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    Model.ViewData["Title"] = "Home page";
+    bool isset = (bool)Model.ViewData["bool"];
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    @*@ViewData["Method"]*@
+    @if (isset)
+    {
+        <h1>this is set in the background</h1>
+    }
+    else
+    {
+        <h1>this is not set in the background</h1>
+    }
+
+    @for (int i = 0; i < Model.counter; i++)
+            {
+                <p>Counter is @i</p>
+            }
+</div>
+
+<form asp-page="Index" method="post">
+    <input type="submit" value="Send a post!">
+</form>
