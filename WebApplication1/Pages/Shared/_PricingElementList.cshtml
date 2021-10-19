@@ -1,0 +1,32 @@
+﻿
+@model IList<WebApplication1.Models.Prices>
+
+  @if(ViewData["other"] != null)
+{
+<h1>@ViewData["Other"]</h1>
+}
+
+@foreach (WebApplication1.Models.Prices price in Model)
+{
+<section class="price-card">
+    <header class="card-header">
+        <h3>@price.Title</h3>
+        <p>@price.Description</p>
+    </header>
+    <hr />
+    <section class="card-cta">
+        <div><span>@price.Price</span></div>
+        <a href="#">Buy Now</a>
+    </section>
+    <hr />
+    <ul class="card-list">
+
+        @foreach (string feature in price.Features)
+        {
+            <li>@feature</li>
+        }
+
+    </ul>
+</section>
+
+}

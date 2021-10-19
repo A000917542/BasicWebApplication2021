@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Models;
 
 namespace WebApplication1.Pages
 {
@@ -14,26 +15,25 @@ namespace WebApplication1.Pages
 
         public int counter = 100;
 
+        public List<Prices> Prices;
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+
+            Prices = new List<Prices>();
+            Prices.Add(new Prices() { Title = "Mover", Description = "You're ready to see results and get moving.", Price = 32M, Features = new List<string>() { "All Basic Features", "Drip Course Content" } });
+            Prices.Add(new Prices() { Title = "Shaker", Description = "You're ready to see results and get shaking.", Price = 80M, Features = new List<string>() { "All Basic Features", "Drip Course Content", "Another Feature" } });
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            ViewData["Method"] = "Get";
-            ViewData["Method"] = "Something";
-            ViewData["Title"] = "Something";
-            ViewData["int1"] = 100;
-            ViewData["bool"] = false;
-
+            return Page();
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            ViewData["Method"] = "Post";
-            ViewData["bool"] = true;
-            counter = 10;
+            return Page();
         }
 
 

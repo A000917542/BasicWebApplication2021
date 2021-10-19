@@ -1,0 +1,37 @@
+﻿@page
+@model WebApplication1.Pages.BiosModel
+@{
+}
+
+<form>
+    <div>
+        <label asp-for="Bio.Name">
+        </label>
+        <input asp-for="Bio.Name" />
+        <span asp-validation-for="Bio.Name" ></span>
+    </div>
+    <div>
+        <label asp-for="Bio.Email">
+        </label>
+        <input asp-for="Bio.Email" />
+        <span asp-validation-for="Bio.Email"></span>
+    </div>
+    <div>
+        <label asp-for="Bio.Image">
+        </label>
+        <input asp-for="Bio.Image" />
+        <span asp-validation-for="Bio.Image"></span>
+    </div>
+    <div>
+        <label asp-for="Bio.Position">
+        </label>
+        <input asp-for="Bio.Position" />
+        <span asp-validation-for="Bio.Position"></span>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

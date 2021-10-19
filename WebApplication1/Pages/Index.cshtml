@@ -2,32 +2,49 @@
 @model IndexModel
 @{
     Model.ViewData["Title"] = "Home page";
-    bool isset = (bool)Model.ViewData["bool"];
+    //bool isset = (bool)Model.ViewData["bool"];
+    Model.ViewData["Other"] = "Other Value";
+
 
 }
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
+<script src="~/js/site.js" asp-append-version="true"></script>
 <div>
     @*@ViewData["Method"]*@
-    @if (isset)
-    {
-        <h1>this is set in the background</h1>
-    }
-    else
-    {
-        <h1>this is not set in the background</h1>
-    }
+    @*@if (isset)
+        {
+            <h1>this is set in the background</h1>
+        }
+        else
+        {
+            <h1>this is not set in the background</h1>
+        }
 
-    @for (int i = 0; i < Model.counter; i++)
-            {
-                <p>Counter is @i</p>
-            }
+        @for (int i = 0; i < Model.counter; i++)
+        {
+            <p>Counter is @i</p>
+        }*@
 </div>
 
-<form asp-page="Index" method="post">
-    <input type="submit" value="Send a post!">
-</form>
+@*foreach (WebApplication1.Models.Prices price in Model.Prices)
+{
+    <partial name="_PricingElement" model="price" />
+}*@
+
+<h1>model Attribute</h1>
+<partial name="_PricingElementList" model="Model.Prices" view-data="Model.ViewData" />
+
+<h1>for Attribute</h1>
+<partial name="_PricingElementList" for="Prices" />
+
+
+
+
+@*<form asp-page="Index" method="post">
+        <input type="submit" value="Send a post!">
+    </form>*@
