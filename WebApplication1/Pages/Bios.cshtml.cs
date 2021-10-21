@@ -10,10 +10,15 @@ namespace WebApplication1.Pages
 {
     public class BiosModel : PageModel
     {
-        public Bio Bio = new Bio();
+        [FromForm]
+        public Bio Bio { get; set; }
 
         public void OnGet()
         {
+            if(!ModelState.IsValid)
+            {
+                Bio.Name = "new namespace";
+            }
         }
     }
 }

@@ -18,9 +18,7 @@ namespace WebApplication1.Models
         public string Image { set; get; }
 
         [StringLength(64)]
-        [CreditCard]
         public string Position { get; set; }
-
        
         [Required]
         [EmailAddress]
